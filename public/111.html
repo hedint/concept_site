@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <mycomp></mycomp>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+<script src="./loader.js"></script>
+<script src="./comp.js"></script>
+
+<script>
+  store = new Vuex.Store({
+    state: {
+      counter: 0
+    },
+    mutations: {
+      incCount(state) {
+        state.counter++;
+      }
+    }
+  });
+  Vue.component("mycomp", window.comp);
+    new Vue({
+      el: '#app',
+      data: () => ({
+        //
+      }
+      ),
+      store
+    });
+</script>
+</body>
+</html>
